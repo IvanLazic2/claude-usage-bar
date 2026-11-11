@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2022",
+    "lib": ["es2022"],
+    "checkJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "maxNodeModuleJsDepth": 0,
+    "strict": false,
+    "types": ["node", "vscode"]
+  },
+  "include": ["*.js"]
+}

@@ -1,0 +1,82 @@
+{
+  "name": "claude-usage-bar",
+  "displayName": "Claude Usage Bar",
+  "description": "Shows Claude Code 5-hour and 7-day usage limits and context usage in the VS Code status bar.",
+  "version": "0.3.3",
+  "publisher": "IvanLazic2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IvanLazic2/claude-usage-bar.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "claudeUsageBar.checkForUpdates",
+        "title": "Claude Usage Bar: Check for updates"
+      }
+    ],
+    "configuration": {
+      "title": "Claude Usage Bar",
+      "properties": {
+        "claudeUsageBar.limitWarning": {
+          "type": "number",
+          "default": 70,
+          "description": "5h/7d percentage at which the text turns yellow."
+        },
+        "claudeUsageBar.limitCritical": {
+          "type": "number",
+          "default": 90,
+          "description": "5h/7d percentage at which the text turns red."
+        },
+        "claudeUsageBar.contextWarning": {
+          "type": "number",
+          "default": 50,
+          "description": "Context percentage at which the text turns yellow."
+        },
+        "claudeUsageBar.contextCritical": {
+          "type": "number",
+          "default": 70,
+          "description": "Context percentage at which the text turns red."
+        },
+        "claudeUsageBar.contextHideAfterMinutes": {
+          "type": "number",
+          "default": 30,
+          "description": "Hide context usage when no Claude tab is open and the last session has been idle for this many minutes."
+        },
+        "claudeUsageBar.contextWindow": {
+          "type": "number",
+          "default": 0,
+          "description": "Context window size in tokens. 0 detects it from the model."
+        },
+        "claudeUsageBar.checkForUpdates": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check GitHub Releases once a day and offer to install new versions."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "tsc -p jsconfig.json",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "~1.90.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}

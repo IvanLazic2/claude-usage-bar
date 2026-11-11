@@ -1,0 +1,7 @@
+.github/**
+node_modules/**
+install.sh
+install.ps1
+jsconfig.json
+*.vsix
+.gitignore
